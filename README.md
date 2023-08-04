@@ -1,8 +1,6 @@
-# Chatbot UI
+# Chatbot UI (Azure OpenAI edition)
 
 Chatbot UI is an open source chat UI for AI models.
-
-See a [demo](https://twitter.com/mckaywrigley/status/1640380021423603713?s=46&t=AowqkodyK6B4JccSOxSPew).
 
 ![Chatbot UI](./public/screenshots/screenshot-0402023.jpg)
 
@@ -19,13 +17,13 @@ Expect frequent improvements.
 
 ## Deploy
 
-**Vercel**
+## Vercel
 
 Host your own live version of Chatbot UI with Vercel.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmckaywrigley%2Fchatbot-ui)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FPwd9000-ML%2Fchatbot-ui)
 
-**Docker**
+## Docker
 
 Build locally:
 
@@ -36,43 +34,53 @@ docker run -e OPENAI_API_KEY=xxxxxxxx -p 3000:3000 chatgpt-ui
 
 Pull from ghcr:
 
-```
-docker run -e OPENAI_API_KEY=xxxxxxxx -p 3000:3000 ghcr.io/mckaywrigley/chatbot-ui:main
+```shell
+docker run -e OPENAI_API_KEY=xxxxxxxx -p 3000:3000 ghcr.io/pwd9000-ml/chatbot-ui:main
 ```
 
 ## Running Locally
 
-**1. Clone Repo**
+### 1. Clone Repo
 
 ```bash
-git clone https://github.com/mckaywrigley/chatbot-ui.git
+git clone https://github.com/pwd9000-ml/chatbot-ui.git
 ```
 
-**2. Install Dependencies**
+### 2. Install Dependencies
 
 ```bash
 npm i
 ```
 
-**3. Provide OpenAI API Key**
+### 3. Provide OpenAI API Key
 
-Create a .env.local file in the root of the repo with your OpenAI API Key:
+Create a `.env.local` file in the root of the repo with your OpenAI API Key:
 
 ```bash
-OPENAI_API_KEY=YOUR_KEY
+# Chatbot UI
+OPENAI_API_KEY="openai-api-key"
+OPENAI_API_HOST="https://<instance>.openai.azure.com"
+OPENAI_API_TYPE="azure"
+AZURE_DEPLOYMENT_ID="demo1-gpt-35-turbo-16k
+DEFAULT_MODEL="gpt-35-turbo-16k"
+NEXT_PUBLIC_DEFAULT_SYSTEM_PROMPT="This is a private instance of ChatGPT hosted by Azure, the LLM is hosted securely by Azure OpenAI."
+NEXT_PUBLIC_DEFAULT_TEMPERATURE=1
+#OPENAI_API_VERSION="2023-05-01"
+# Google
+#GOOGLE_API_KEY=YOUR_API_KEY
+#GOOGLE_CSE_ID=YOUR_ENGINE_ID
 ```
 
 > You can set `OPENAI_API_HOST` where access to the official OpenAI host is restricted or unavailable, allowing users to configure an alternative host for their specific needs.
-
 > Additionally, if you have multiple OpenAI Organizations, you can set `OPENAI_ORGANIZATION` to specify one.
 
-**4. Run App**
+## 4. Run App
 
 ```bash
 npm run dev
 ```
 
-**5. Use It**
+## 5. Use It
 
 You should be able to start chatting.
 
