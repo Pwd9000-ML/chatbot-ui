@@ -1,18 +1,27 @@
-const { i18n } = require('./next-i18next.config');
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true"
+})
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  i18n,
-  reactStrictMode: true,
-
-  webpack(config, { isServer, dev }) {
-    config.experiments = {
-      asyncWebAssembly: true,
-      layers: true,
-    };
-
-    return config;
+module.exports = withBundleAnalyzer({
+  reactStrictMode: false,
+  images: {
+    remotePatterns: [
+      {
+        protocol: "http",
+        hostname: "localhost"
+      },
+      {
+        protocol: "http",
+        hostname: "127.0.0.1"
+      },
+      {
+        protocol: "https",
+        hostname: "**"
+      }
+    ]
   },
-};
-
-module.exports = nextConfig;
+  experimental: {
+    serverComponentsExternalPackages: ["sharp", "onnxruntime-node"]
+  }
+})
