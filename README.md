@@ -44,7 +44,6 @@ docker run -e OPENAI_API_KEY=xxxxxxxx -p 3000:3000 ghcr.io/pwd9000-ml/chatbot-ui
 
 ```bash
 git clone https://github.com/pwd9000-ml/chatbot-ui.git
-
 ```
 
 ### 2. Install Dependencies

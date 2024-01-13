@@ -10,7 +10,7 @@ Before you get started, please read our guidelines for contributing.
 
 We welcome the following types of contributions:
 
-- Bug fixes.
+- Bug fixes
 - New features
 - Documentation improvements
 - Code optimizations
